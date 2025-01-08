@@ -1,3 +1,3 @@
-import { CompletedTask, EditingTask, Task } from "./task.js";
+import Task from "./task.js";
 
-export { CompletedTask, EditingTask, Task };
+export default Task;
