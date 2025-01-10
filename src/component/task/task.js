@@ -1,41 +1,19 @@
 import { Component } from "react";
 import { formatDistanceToNow } from "date-fns";
+import PropTypes from "prop-types";
 import KG from "date-fns/locale/en-AU";
 import "./task.css";
-
-// const CompletedTask = () => {
-//   return (
-//     <li className="completed">
-//       <div className="view">
-//         <input className="toggle" type="checkbox" />
-//         <label>
-//           <span className="description"></span>
-//           <span className="created">created 17 seconds ago</span>
-//         </label>
-//         <button className="icon icon-edit"></button>
-//         <button className="icon icon-destroy"></button>
-//       </div>
-//     </li>
-//   );
-// };
-
-// const EditingTask = () => {
-//   return (
-//     <li className="editing">
-//       <div className="view">
-//         <input className="toggle" type="checkbox" />
-//         <label>
-//           <span className="description"></span>
-//           <span className="created">created 5 minutes ago</span>
-//         </label>
-//         <button className="icon icon-edit"></button>
-//         <button className="icon icon-destroy"></button>
-//       </div>
-//       <input type="text" className="edit" value="Editing task" />
-//     </li>
-//   );
-// };
 export default class Task extends Component {
+  static defaultProps = {
+    date: new Date(),
+  };
+
+  static propTypes = {
+    date: PropTypes.instanceOf(Date),
+    completed: PropTypes.bool,
+    editing: PropTypes.bool,
+  };
+
   state = {
     label: this.props.label,
   };

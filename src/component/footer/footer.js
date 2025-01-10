@@ -1,5 +1,6 @@
 import "./footer.css";
 import TaskFilter from "../task-filter";
+import PropTypes from "prop-types";
 
 const Footer = ({ count, changeFilter, filter, clearCompleted }) => {
   return (
@@ -13,4 +14,17 @@ const Footer = ({ count, changeFilter, filter, clearCompleted }) => {
   );
 };
 
+Footer.defaultProps = {
+  count: 0,
+  changeFilter: () => {},
+  clearCompleted: () => {},
+  filter: "All",
+};
+
+Footer.propTypes = {
+  count: PropTypes.number,
+  filter: PropTypes.string,
+  changeFilter: PropTypes.func,
+  clearCompleted: PropTypes.func,
+};
 export default Footer;

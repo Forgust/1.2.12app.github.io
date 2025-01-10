@@ -2,6 +2,10 @@ import { Component } from "react";
 import "./task-filter.css";
 
 export default class TaskFilter extends Component {
+  static defaultProps = {
+    changeFilter: () => {},
+  };
+
   render() {
     const { filter, changeFilter } = this.props;
 
