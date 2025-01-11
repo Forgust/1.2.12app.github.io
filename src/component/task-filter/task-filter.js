@@ -1,22 +1,22 @@
-import { Component } from "react";
-import "./task-filter.css";
+import { Component } from 'react'
+import './task-filter.css'
 
 export default class TaskFilter extends Component {
   static defaultProps = {
     changeFilter: () => {},
-  };
+  }
 
   render() {
-    const { filter, changeFilter } = this.props;
+    const { filter, changeFilter } = this.props
 
     return (
       <ul className="filters">
         <li>
           <button
             onClick={() => {
-              changeFilter("All");
+              changeFilter('All')
             }}
-            className={filter === "All" ? "selected" : null}
+            className={filter === 'All' ? 'selected' : null}
           >
             All
           </button>
@@ -24,9 +24,9 @@ export default class TaskFilter extends Component {
         <li>
           <button
             onClick={() => {
-              changeFilter("Active");
+              changeFilter('Active')
             }}
-            className={filter === "Active" ? "selected" : null}
+            className={filter === 'Active' ? 'selected' : null}
           >
             Active
           </button>
@@ -34,14 +34,14 @@ export default class TaskFilter extends Component {
         <li>
           <button
             onClick={() => {
-              changeFilter("Completed");
+              changeFilter('Completed')
             }}
-            className={filter === "Completed" ? "selected" : null}
+            className={filter === 'Completed' ? 'selected' : null}
           >
             Completed
           </button>
         </li>
       </ul>
-    );
+    )
   }
 }

@@ -1,25 +1,25 @@
-import { Component } from "react";
-import "./new-task-form.css";
+import { Component } from 'react'
+import './new-task-form.css'
 
 export default class NewTaskForm extends Component {
   state = {
-    label: "",
-  };
+    label: '',
+  }
 
   onLabelChange = (e) => {
     this.setState({
       label: e.target.value,
-    });
-  };
+    })
+  }
 
   onSubmit = (e) => {
-    if (e.key === "Enter") {
-      this.props.onTaskAdd(this.state.label);
+    if (e.key === 'Enter') {
+      this.props.onTaskAdd(this.state.label)
       this.setState({
-        label: "",
-      });
+        label: '',
+      })
     }
-  };
+  }
 
   render() {
     return (
@@ -31,6 +31,6 @@ export default class NewTaskForm extends Component {
         onChange={this.onLabelChange}
         onKeyDown={this.onSubmit}
       />
-    );
+    )
   }
 }
