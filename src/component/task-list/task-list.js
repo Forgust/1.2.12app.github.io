@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import './task-list.css'
 import PropTypes from 'prop-types'
 
@@ -27,7 +27,7 @@ export default class TaskList extends Component {
 
     let elements = []
 
-    const TaskWithProps = (item) => {
+    function TaskWithProps(item) {
       return (
         <Task
           date={item.date}
@@ -63,9 +63,7 @@ export default class TaskList extends Component {
         })
         break
       case 'All':
-        elements = todos.map((item) => {
-          return TaskWithProps(item)
-        })
+        elements = todos.map((item) => TaskWithProps(item))
         break
       default:
         throw new Error('Incorrect filter')

@@ -1,9 +1,10 @@
+import React from 'react'
 import './footer.css'
 import PropTypes from 'prop-types'
 
 import TaskFilter from '../task-filter'
 
-const Footer = ({ count, changeFilter, filter, clearCompleted }) => {
+function Footer({ count, changeFilter, filter, clearCompleted }) {
   return (
     <footer className="footer">
       <span className="todo-count">{count} items left</span>

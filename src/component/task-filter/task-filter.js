@@ -1,9 +1,15 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import './task-filter.css'
+import PropTypes from 'prop-types'
 
 export default class TaskFilter extends Component {
   static defaultProps = {
     changeFilter: () => {},
+  }
+
+  static propTypes = {
+    filter: PropTypes.string,
+    changeFilter: PropTypes.func,
   }
 
   render() {

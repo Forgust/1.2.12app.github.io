@@ -12,21 +12,14 @@
     "plugin:import/warnings"
   ],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
+    "ecmaFeatures": { "jsx": true },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": ["react", "prettier", "import"],
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
+    "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],

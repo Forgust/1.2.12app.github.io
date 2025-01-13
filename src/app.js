@@ -7,10 +7,20 @@ import NewTaskForm from './component/new-task-form'
 import TaskList from './component/task-list'
 
 export default class App extends Component {
-  maxId = 100
+  maxId = 0
+
   state = {
     todoData: [],
     filter: 'All',
+  }
+
+  clearCompleted = () => {
+    this.setState(({ todoData }) => {
+      const newArr = todoData.filter((el) => !el.completed)
+      return {
+        todoData: newArr,
+      }
+    })
   }
 
   createDataItem(text) {
@@ -18,7 +28,7 @@ export default class App extends Component {
       label: text,
       editing: false,
       completed: false,
-      id: this.maxId++,
+      id: (this.maxId += 1),
       date: new Date(),
     }
   }
@@ -52,33 +62,20 @@ export default class App extends Component {
   }
 
   onToggleCompleted = (id) => {
-    this.setState(({ todoData }) => {
-      return {
-        todoData: this.toggleProperty(todoData, id, 'completed'),
-      }
-    })
+    this.setState(({ todoData }) => ({
+      todoData: this.toggleProperty(todoData, id, 'completed'),
+    }))
   }
 
   onToggleEditing = (id) => {
-    this.setState(({ todoData }) => {
-      return {
-        todoData: this.toggleProperty(todoData, id, 'editing'),
-      }
-    })
+    this.setState(({ todoData }) => ({
+      todoData: this.toggleProperty(todoData, id, 'editing'),
+    }))
   }
 
   changeFilter = (text) => {
     this.setState({
       filter: text,
-    })
-  }
-
-  clearCompleted = () => {
-    this.setState(({ todoData }) => {
-      const newArr = todoData.filter((el) => !el.completed)
-      return {
-        todoData: newArr,
-      }
     })
   }
 
